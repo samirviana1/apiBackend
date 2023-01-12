@@ -1,7 +1,7 @@
 import express, {Express} from "express";
 import cors from "cors";
 import {stickynotes, user} from "./services";
-import {userExiste, validaUser} from "./middlewares";
+import {buscarUser, userExiste, validaUser} from "./middlewares";
 import {stickynotesExiste, validaStickynotes} from "./middlewares";
 //import  router  from "./router"
 
@@ -11,8 +11,8 @@ app.use(cors());
 app.use(express.json()); //router)
 
 app.get("/users", user.searchUser);
-app.get("/usersLogon/:id", userExiste, user.logUser);
-app.post("/users", validaUser, user.createUser);
+app.get("/usersLogon/:id", buscarUser, user.logUser);
+app.post("/users", validaUser, userExiste, user.createUser);
 
 app.post("/notes", validaStickynotes, stickynotes.createStickynotes);
 app.get("/notes", stickynotes.searchStickynotes);

@@ -69,7 +69,7 @@ class Stickynotes {
   updateStickynotes(req: Request, res: Response) {
     const {id} = req.params;
     const {title, description} = req.body;
-    const stickynotes = listSn.find((value) => value.uid === id);
+    const stickynotes = listSn.find((value) => value.id === id);
     console.log(stickynotes);
 
     stickynotes!.title = title;
@@ -83,7 +83,7 @@ class Stickynotes {
 
   deleteStickynotes(req: Request, res: Response) {
     const {id} = req.params;
-    const stickynotesIndex = listSn.findIndex((index) => index.uid === id);
+    const stickynotesIndex = listSn.findIndex((index) => index.id === id);
     if (stickynotesIndex === -1) {
       return res.status(404).json({
         sucesso: false,
