@@ -1,4 +1,4 @@
-import express, {Express} from "express";
+import express, {Express, Request, Response} from "express";
 import cors from "cors";
 import {stickynotes, user} from "./services";
 import {buscarUser, userExiste, validaUser} from "./middlewares";
@@ -10,6 +10,13 @@ const port = process.env.PORT || 8081;
 app.use(cors());
 app.use(express.json()); //router)
 
+app.get("/", (req: Request, res: Response) => {
+  return res.status(200).send(`
+     <h1>Api Recados!</h1>
+     <br>
+     <p>Api desenvolvida para o projeto de recados do programa start dev fullstack!</p>
+    `);
+});
 app.get("/users", user.searchUser);
 app.get("/usersLogon/:id", buscarUser, user.logUser);
 app.post("/users", validaUser, userExiste, user.createUser);

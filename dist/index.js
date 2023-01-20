@@ -13,6 +13,13 @@ const app = (0, express_1.default)();
 const port = process.env.PORT || 8081;
 app.use((0, cors_1.default)());
 app.use(express_1.default.json()); //router)
+app.get("/", (req, res) => {
+    return res.status(200).send(`
+     <h1>Api Recados!</h1>
+     <br>
+     <p>Api desenvolvida para o projeto de recados do programa start dev fullstack!</p>
+    `);
+});
 app.get("/users", services_1.user.searchUser);
 app.get("/usersLogon/:id", middlewares_1.buscarUser, services_1.user.logUser);
 app.post("/users", middlewares_1.validaUser, middlewares_1.userExiste, services_1.user.createUser);
