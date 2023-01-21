@@ -4,7 +4,7 @@ import {IUser, IResposta} from "../interfaces";
 import {v4} from "uuid";
 
 class User {
-  searchUser(req: Request, res: Response) {
+  getUserList(req: Request, res: Response) {
     res.json({
       sucesso: true,
       dados: list,
@@ -40,12 +40,12 @@ class User {
       } as IResposta);
     }
 
-    const userLogon = {
-      id: list[userIndex].id,
+    const userLogado = {
+      email: list[userIndex].email,
       username: list[userIndex].name,
     };
 
-    return res.status(200).json(userLogon);
+    return res.status(200).json(userLogado);
   }
 
   createUser(req: Request, res: Response) {

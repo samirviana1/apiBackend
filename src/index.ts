@@ -17,8 +17,8 @@ app.get("/", (req: Request, res: Response) => {
      <p>Api desenvolvida para o projeto de recados do programa start dev fullstack!</p>
     `);
 });
-app.get("/users", user.searchUser);
-app.get("/usersLogon/:id", buscarUser, user.logUser);
+app.get("/users", user.getUserList);
+app.get("/login", buscarUser, user.logUser);
 app.post("/users", validaUser, userExiste, user.createUser);
 
 app.post("/notes", validaStickynotes, stickynotes.createStickynotes);
