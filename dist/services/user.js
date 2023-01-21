@@ -4,7 +4,7 @@ exports.user = void 0;
 const data_1 = require("../data");
 const uuid_1 = require("uuid");
 class User {
-    searchUser(req, res) {
+    getUserList(req, res) {
         res.json({
             sucesso: true,
             dados: data_1.list,
@@ -33,11 +33,11 @@ class User {
                 mensagem: "Usuario não encontrado!",
             });
         }
-        const userLogon = {
-            id: data_1.list[userIndex].id,
+        const userLogado = {
+            email: data_1.list[userIndex].email,
             username: data_1.list[userIndex].name,
         };
-        return res.status(200).json(userLogon);
+        return res.status(200).json(userLogado);
     }
     createUser(req, res) {
         const { name, email, password } = req.body;
