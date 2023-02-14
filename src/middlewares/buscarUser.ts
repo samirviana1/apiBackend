@@ -3,8 +3,8 @@ import {list} from "../data";
 import {IResposta} from "../interfaces";
 
 export function buscarUser(req: Request, res: Response, next: NextFunction) {
-  const {id} = req.params;
-  const user = list.find((value) => value.id === id);
+  const {email} = req.params;
+  const user = list.find((value) => value.email === email);
   if (!user) {
     return res.status(404).json({
       sucesso: false,
