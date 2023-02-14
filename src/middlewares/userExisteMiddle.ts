@@ -4,7 +4,7 @@ import {IResposta} from "../interfaces";
 
 export function userExiste(req: Request, res: Response, next: NextFunction) {
   const {email, name} = req.body;
-  const user = list.some(
+  const user = list.filter(
     (value) => value.email === email || value.name === name
   );
   if (user) {
