@@ -4,7 +4,7 @@ exports.userExiste = void 0;
 const data_1 = require("../data");
 function userExiste(req, res, next) {
     const { email, name } = req.body;
-    const user = data_1.list.some((value) => value.email === email || value.name === name);
+    const user = data_1.list.filter((value) => value.email === email || value.name === name);
     if (user) {
         return res.status(404).json({
             sucesso: false,
