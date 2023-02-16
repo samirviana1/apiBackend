@@ -27,6 +27,7 @@ class User {
             });
         }
         const userIndex = data_1.list.findIndex((index) => index.email === email && index.password === password);
+        console.log(userIndex);
         if (userIndex < 0) {
             return res.status(404).json({
                 sucesso: false,
@@ -37,6 +38,7 @@ class User {
             email: data_1.list[userIndex].email,
             username: data_1.list[userIndex].name,
         };
+        console.log(userLogado);
         return res.status(200).json(userLogado);
     }
     createUser(req, res) {
