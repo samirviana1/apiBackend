@@ -32,6 +32,7 @@ class User {
     const userIndex = list.findIndex(
       (index) => index.email === email && index.password === password
     );
+    console.log(userIndex);
 
     if (userIndex < 0) {
       return res.status(404).json({
@@ -44,6 +45,8 @@ class User {
       email: list[userIndex].email,
       username: list[userIndex].name,
     };
+
+    console.log(userLogado);
 
     return res.status(200).json(userLogado);
   }
